@@ -1,0 +1,5 @@
+
+> nightcall@0.12.0-rc.3 check:project
+> node scripts/check-project.js
+
+Project scan PASS: 64 text files; no recognized credential patterns. Local data and .env are excluded by design.

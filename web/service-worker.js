@@ -1,0 +1,3 @@
+// No private API responses or authenticated pages are cached.
+self.addEventListener('push',event=>{let data={};try{data=event.data?.json()||{};}catch{}event.waitUntil(self.registration.showNotification(data.title||'Nightcall',{body:data.body||'Nova atividade',icon:'/assets/images/nightcall-mark.png',tag:data.tag||'nightcall'}));});
+self.addEventListener('notificationclick',event=>{event.notification.close();event.waitUntil(self.clients.matchAll({type:'window',includeUncontrolled:true}).then(async clients=>{const existing=clients.find(c=>new URL(c.url).origin===self.location.origin);if(existing)return existing.focus();return self.clients.openWindow('/');}));});

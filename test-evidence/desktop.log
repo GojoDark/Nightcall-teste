@@ -1,0 +1,3 @@
+private {"stats":[{"kind":"audio","packets":90,"codec":"CIT01_111_minptime=10;useinbandfec=1"},{"kind":"audio","packets":182,"codec":"CIT01_111_minptime=10;useinbandfec=1"},{"kind":"video","packets":80,"frames":24,"codec":"CIT01_96"},{"kind":"video","packets":72,"frames":12,"codec":"CIT01_96"}],"nativePiPApi":true}
+voice {"stats":[{"kind":"audio","packets":70,"codec":"CIT01_111_minptime=10;useinbandfec=1"},{"kind":"audio","packets":81,"codec":"CIT01_111_minptime=10;useinbandfec=1"},{"kind":"video","packets":71,"frames":13,"codec":"CIT01_96"},{"kind":"video","packets":90,"frames":28,"codec":"CIT01_96"}],"nativePiPApi":true}
+Browser regression: PASS (two isolated accounts, real Chromium WebRTC, synthetic media).

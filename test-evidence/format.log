@@ -1,0 +1,6 @@
+
+> nightcall@0.12.0-rc.3 format:check
+> prettier --check web/js web/css web/index.html
+
+Checking formatting...
+All matched files use Prettier code style!

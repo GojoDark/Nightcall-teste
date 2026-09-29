@@ -1,0 +1,57 @@
+import assert from 'node:assert/strict';
+import {mkdir} from 'node:fs/promises';
+import {startServer,client} from './server-helper.js';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
+const server=await startServer({NIGHTCALL_RING_TIMEOUT_MS:'3500'});let browser;const pages=[],errors=[];
+try{
+ browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{}),args:['--disable-gpu','--use-fake-device-for-media-stream','--use-fake-ui-for-media-stream','--autoplay-policy=no-user-gesture-required']});
+ const a=client(server.url),b=client(server.url);
+ const register=(c,name)=>c('/api/auth/register',{username:name,displayName:name==='alice'?'Alice Nome Longo para testar quebra':'Bob',email:name+'@example.test',password:'Nightcall123!'});
+ const aa=await register(a,'alice'),bb=await register(b,'bobby');await a('/api/friends/request',{username:'bobby'});const f=await b('/api/friends');await b(`/api/friends/${f.friends[0].friendshipId}/accept`,{});
+ const sp=(await a('/api/spaces',{name:'Comunidade com nome muito longo para mobile'})).space;const inv=await a(`/api/spaces/${sp.spaceId}/invite`,{});await b('/api/spaces/join',{token:inv.token});const detail=await a(`/api/spaces/${sp.spaceId}`),channel=detail.channels.find(c=>c.type==='text');
+ async function pageFor(name,mobile=false){const context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:1000},isMobile:mobile,hasTouch:mobile,permissions:['microphone','camera']});const page=await context.newPage();pages.push(page);page.on('pageerror',e=>errors.push(e.message));await page.goto(server.url);await page.evaluate(async name=>fetch('/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({login:name,password:'Nightcall123!'})}),name);await page.reload();await page.locator('.app-shell').waitFor();await page.evaluate(async()=>{const {CallManager}=await import('/js/call-manager.js');const enter=CallManager.prototype.enter;CallManager.prototype.enter=function(...args){window.testManager=this;return enter.apply(this,args);};});return page;}
+ const pc=await pageFor('alice'),phone=await pageFor('bobby',true);
+ async function menu(page){await page.locator('.app-shell').waitFor();if(await page.locator('#mobile-menu').isVisible()&&!await page.locator('.app-shell').evaluate(e=>e.classList.contains('nav-open')))await page.locator('#mobile-menu').click();}
+ async function section(page,id){await menu(page);if(!await page.locator(`[data-sec=${id}]`).isVisible()){await page.locator('#home-btn').click();await menu(page);}await page.locator(`[data-sec=${id}]`).click();}
+ async function home(page){await menu(page);await page.locator('#home-btn').click();}
+ async function community(page){await menu(page);await page.locator(`[data-space="${sp.spaceId}"]`).click();}
+ async function callFrom(page){await home(page);await page.locator('.call-btn').first().click();}
+ async function connected(page){await page.waitForFunction(()=>window.testManager?.session?.callState==='connected'&&[...testManager.peers.values()].every(p=>p.pc.connectionState==='connected'),{},{timeout:20000});}
+ async function noOverflow(page,label){const bad=await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>{const style=getComputedStyle(e),r=e.getBoundingClientRect();return style.visibility!=='hidden'&&style.display!=='none'&&r.width>0&&(r.right>innerWidth+1||r.left<-1)&&!e.closest('.toast');}).map(e=>e.tagName+'.'+e.className).slice(0,8));assert.deepEqual(bad,[],label);}
+ await mkdir('test-results',{recursive:true});
+ // First incoming message while the recipient remains on Home.
+ await pc.locator('[data-message]').first().click();await pc.locator('#message-input').fill('Primeira DM recebida fechada');await pc.locator('#composer button').click();
+ await phone.locator('.recent-dm').filter({hasText:'Primeira DM'}).waitFor();await section(phone,'messages');await phone.locator('.message-directory-row .dm-unread').waitFor();await phone.locator('.message-directory-row').first().click();await phone.locator('.message p').filter({hasText:'Primeira DM'}).waitFor();
+ // Forward and browser-back navigation.
+ await home(phone);await phone.goBack();await phone.locator('#message-input').waitFor();
+ // Loading failure is visible and retry recovers an empty community.
+ await phone.route('**/api/channels/*/messages',route=>route.request().method()==='GET'?route.fulfill({status:503,contentType:'application/json',body:'{"error":"REQUEST_FAILED"}'}):route.continue());
+ await community(phone);await phone.getByRole('button',{name:'Tentar novamente',exact:true}).waitFor();await phone.unroute('**/api/channels/*/messages');await phone.getByRole('button',{name:'Tentar novamente',exact:true}).click();await phone.locator('.dm-welcome').waitFor();
+ // PC -> phone, recipient on community.
+ await callFrom(pc);await phone.locator('[data-call-action=accept]').waitFor();assert.equal(await pc.locator('#session-time').textContent(),'');await phone.locator('[data-call-action=accept]').click();await Promise.all([connected(pc),connected(phone)]);
+ await phone.locator('[data-action=hide]').click();await section(phone,'messages');await phone.locator('.message-directory-row').first().click();await phone.locator('#message-input').fill('Mensagem com call ativa');await phone.locator('#composer button').click();assert.equal(await phone.evaluate(()=>testManager.session.callState),'connected');await phone.locator('#session-return').click();await phone.locator('[data-action=leave]').click();await pc.waitForFunction(()=>!testManager.session);
+ await phone.locator('.system-event').filter({hasText:'Chamada de voz'}).waitFor();await phone.reload();await phone.evaluate(async()=>{const {CallManager}=await import('/js/call-manager.js');const enter=CallManager.prototype.enter;CallManager.prototype.enter=function(...args){window.testManager=this;return enter.apply(this,args);};});await section(phone,'messages');await phone.locator('.message-directory-row').first().click();await phone.locator('.system-event').filter({hasText:'Chamada de voz'}).waitFor();
+ // Phone -> PC, decline and caller cancellation synchronize globally.
+ await callFrom(phone);await pc.locator('[data-call-action=decline]').click();await phone.locator('#incoming-call').waitFor({state:'hidden'});
+ await callFrom(pc);await phone.locator('[data-call-action=accept]').waitFor();await pc.locator('[data-call-action=cancel]').click();await phone.locator('#incoming-call').waitFor({state:'hidden'});
+ // Missed call is server-timed and survives reload.
+ await callFrom(pc);await phone.locator('[data-call-action=accept]').waitFor();await phone.locator('#incoming-call').waitFor({state:'hidden',timeout:10000});await section(phone,'messages');await phone.locator('.message-directory-row').first().click();await phone.locator('.system-event').filter({hasText:'Chamada perdida'}).waitFor();
+ // Both active clients ring; accepting on phone wins and dismisses desktop.
+ const secondPhone=await pageFor('alice',true);
+ await callFrom(phone);await Promise.all([pc,secondPhone].map(p=>p.locator('[data-call-action=accept]').waitFor()));await secondPhone.locator('[data-call-action=accept]').click();await pc.locator('#incoming-call').waitFor({state:'hidden'});await Promise.all([connected(phone),connected(secondPhone)]);await secondPhone.locator('[data-action=leave]').click();await phone.waitForFunction(()=>!testManager.session);
+ // Layout matrix, long URLs and resized visual viewport/composer.
+ const dm=(await a('/api/dms')).conversations[0];await a(`/api/dms/${dm.conversationId}/messages`,{body:'https://example.test/'+('muitolongo'.repeat(60)),clientId:'long-url'});
+ for(const width of [320,360,390,412,768,1024,1440]){
+   await phone.setViewportSize({width,height:900});await home(phone);await noOverflow(phone,'Home '+width);
+   await section(phone,'messages');await phone.locator('.message-directory-row').first().click();await phone.locator('.message p').filter({hasText:'https://example.test/'}).waitFor();await noOverflow(phone,'DM '+width);
+   await community(phone);await phone.locator('#channel-input').waitFor();await noOverflow(phone,'Community '+width);
+   await section(phone,'friends');await noOverflow(phone,'Friends '+width);await menu(phone);await phone.locator('#settings-dock').click();await phone.locator('#audio-settings').waitFor();await noOverflow(phone,'Settings '+width);await menu(phone);await phone.locator('#profile-dock').click();await phone.locator('#edit-own-profile').click();await noOverflow(phone,'Profile '+width);await community(phone);await phone.locator('#channel-input').waitFor();
+   if(width===390){await phone.screenshot({path:'test-results/mobile-community.png'});await home(phone);await phone.screenshot({path:'test-results/mobile-home.png'});}
+ }
+ await phone.setViewportSize({width:390,height:480});await section(phone,'messages');await phone.locator('.message-directory-row').first().click();await phone.locator('#message-input').focus();assert.equal(await phone.locator('#composer').evaluate(e=>e.getBoundingClientRect().bottom<=visualViewport.height+1),true);await phone.screenshot({path:'test-results/mobile-chat-small-viewport.png'});
+ // Reading position and drafts survive navigation; new arrivals do not pull the reader down.
+ await phone.locator('.message-scroll').evaluate(e=>e.scrollTop=0);await phone.locator('#message-input').fill('Rascunho preservado');await home(phone);await section(phone,'messages');await phone.locator('.message-directory-row').first().click();assert.equal(await phone.locator('#message-input').inputValue(),'Rascunho preservado');assert.equal(await phone.locator('.message-scroll').evaluate(e=>e.scrollTop),0);await a(`/api/dms/${dm.conversationId}/messages`,{body:'Chegou enquanto lia',clientId:'reading'});await phone.locator('.new-messages').waitFor();assert.equal(await phone.locator('.message-scroll').evaluate(e=>e.scrollTop),0);await phone.locator('.new-messages').click();
+ // Temporary offline state retains input and retries without duplicate message.
+ await phone.context().setOffline(true);await phone.locator('#sync-status').filter({hasText:'Reconectando'}).waitFor();await phone.locator('#message-input').fill('Mensagem depois de reconectar');await phone.locator('#composer button').click();await phone.locator('.chat-load-status').filter({hasText:'Mensagem não enviada'}).waitFor();assert.equal(await phone.locator('#message-input').inputValue(),'Mensagem depois de reconectar');await phone.context().setOffline(false);await phone.waitForFunction(()=>document.querySelector('#sync-status').textContent==='');await phone.locator('#composer button').click();await phone.locator('.message p').filter({hasText:'Mensagem depois de reconectar'}).waitFor();assert.equal((await a(`/api/dms/${dm.conversationId}/messages`)).messages.filter(x=>x.body==='Mensagem depois de reconectar').length,1);
+ assert.deepEqual(errors,[]);console.log('Mobile regression PASS: PC↔emulated phone, two emulated phones, multi-client ringing, missed/declined/cancelled/history, DM sync, retry, layout matrix and offline recovery.');
+}catch(error){for(const [i,page]of pages.entries()){await page.screenshot({path:`test-results/mobile-failure-${i}.png`}).catch(()=>{});console.log('PAGE',i,await page.locator('body').innerText().catch(()=>''));}console.log('PAGE ERRORS',errors);throw error;}finally{await browser?.close();await server.close();}

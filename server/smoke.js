@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import { db } from './db.js';
+import { hashPassword, verifyPassword, normalizeUsername } from './auth.js';
+const hash=await hashPassword('NightcallTest123!');
+assert.notEqual(hash,'NightcallTest123!');
+assert.equal(await verifyPassword('NightcallTest123!',hash),true);
+assert.equal(await verifyPassword('wrong-password',hash),false);
+assert.equal(normalizeUsername('@Vgzxx1Hz'),'vgzxx1hz');
+for(const table of ['users','sessions','friendships','dm_conversations','messages','spaces','space_members','channels','channel_members']) assert.ok(db.prepare(`SELECT name FROM sqlite_master WHERE type='table' AND name=?`).get(table));
+console.log('Nightcall smoke test: OK');
+db.close();

@@ -1,0 +1,25 @@
+{
+  "name": "nightcall",
+  "version": "0.12.0-rc.3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server/index.js",
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "test": "node scripts/test.js",
+    "build": "node scripts/build.js",
+    "test:browser": "node tests/browser.mjs",
+    "test:mobile": "node tests/mobile.mjs",
+    "test:auth": "node tests/auth-ui.mjs",
+    "format": "prettier --write web/js web/css web/index.html",
+    "format:check": "prettier --check web/js web/css web/index.html",
+    "check:project": "node scripts/check-project.js",
+    "test:structure": "node tests/document-structure.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "prettier": "3.9.9"
+  }
+}

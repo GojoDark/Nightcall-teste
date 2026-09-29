@@ -1,0 +1,371 @@
+{
+  "version": "0.12.0-rc.3",
+  "baseline": "NIGHTCALL-v0.12.0-rc.2",
+  "baselineZipSHA256": "BFD2B7FD5927E27007A6271C4B356B73778DEF9915530401634EEE7C159BADAD",
+  "files": [
+    {
+      "path": ".editorconfig",
+      "sha256": "76F58DF10A7FC3AEF8254A804DFB1E32108F282E52C69EB7A9152ECD9975EBD6"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "9E4384902575C27CA45F919CAC46E8E1B782133F9FAF4E98839259AE7CAB1A6D"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "176027CB7D606293F599F055DAC097C087F869C7FD54018A67C949DA9C6C4169"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "BA48D16FF62A34F8988CBBD0909C38B7E421A5FBC5C5EC5EBCCDBCEF2D761674"
+    },
+    {
+      "path": ".prettierignore",
+      "sha256": "E2D712C5024745EEE683386817A9498367826CB88363BC406B4D63278AD80924"
+    },
+    {
+      "path": ".prettierrc.json",
+      "sha256": "0C85AC070408BFDA50146F5DB23F3676E82F414EEEC6793CFEF46920886CFBE8"
+    },
+    {
+      "path": "ABRIR-NIGHTCALL-ONLINE.bat",
+      "sha256": "A35E439F14CF81AFD5DE2513B33CB0872B44AFFA0A20E1B1C7A2C3403390514D"
+    },
+    {
+      "path": "ABRIR-NIGHTCALL.bat",
+      "sha256": "EB3DAB5FFACCB5CFDEC6E8C9C25AC74E930AD6A80E6D5C472BF789BD9F610044"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "F256767ECA80FDD787E56AC185F2C055955ADD180EF9B911D8FA94C57D38E839"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "A99BE3260F81CEFA30489CDAC6EA8025BECC2BB8901381BBA5491E39A7786EE9"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "D6E8A843EDEBC024413EB612DA1E6339614D41E570EFBDAAD5E36C548DC68C4B"
+    },
+    {
+      "path": "COLLABORATION.md",
+      "sha256": "9712081AFC3003F14E60A71F6279E4814256E2A4EDA0DD6332ECBB358B2A472F"
+    },
+    {
+      "path": "GITHUB-DESKTOP.md",
+      "sha256": "A9CFCEEEB16E0492819EE7C3400514246B09D481C6ED1B1108FDCF3DF52724ED"
+    },
+    {
+      "path": "HTML-MIGRATION.md",
+      "sha256": "57807BEB8B73C5E338E41B5E8DF2C2F3E23DFC7885F8902CD3AD029019AAEA2A"
+    },
+    {
+      "path": "index.html",
+      "sha256": "E285FD76520CBFC55EBF43C0AE779490EBFB47576727598E71E4CD9585DC91C0"
+    },
+    {
+      "path": "logo.png",
+      "sha256": "9B68A29E115A7EBD38BD4206BD1277EC334EC8A9EB6709474DA81BB78AEC125C"
+    },
+    {
+      "path": "MOBILE-BASELINE.md",
+      "sha256": "E06B8F4681E64C3FBD4EC71923F6ACFF9388668F83F9D816DE42D345D7A4C45F"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "DF6EC3AD1317B3C21174B713F144C7114976CB31DDCBFB46720005B278CE382F"
+    },
+    {
+      "path": "package.json",
+      "sha256": "285C6DCF2BB018E4C457D7EC9E0464C623B5AEACE236AE0DCDE88F177565A882"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2242D865C20E9FBF1D7EF3418D74BBDA96ACE704488B101E940663202839EBB7"
+    },
+    {
+      "path": "REFACTOR-METRICS.json",
+      "sha256": "433EB714E7B4D02DE682ACB07034D834CC300D7A3FA080B511226A5313402A3B"
+    },
+    {
+      "path": "REFACTOR-REPORT.md",
+      "sha256": "2122B7723D8ABBBB55AE7FF9B1BB22161741C884E05A05486D324864B7391919"
+    },
+    {
+      "path": "reference.png",
+      "sha256": "4FC690D6331FACC193F45CD37F0CB0F689A33D80CDE9D8419DC06B37E7FE0A62"
+    },
+    {
+      "path": "REGRESSION.md",
+      "sha256": "727FDC3790D140F13225AD4B2E38B3C1F1253BECC558139AD879FF63B61D4AEC"
+    },
+    {
+      "path": "TEST-RESULTS.md",
+      "sha256": "B70E9119E1D89915C58E8374C530F9E930531ADBE0D94F7F8C3559F67F83A83C"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "B9686B0E1F27D4AECA16C8B0E57F3673FEC0854FF70F86D214E0EB5741A57FD0"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "ADCF541A25B00AB305EBCED8A430E8D49AF860890E352D424A60D86CF0E22641"
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "sha256": "D3B98028121838B5F28D08E7BBA889C716CB14733B3206BE354BA63B7E3C9FE2"
+    },
+    {
+      "path": "scripts/build.js",
+      "sha256": "A0C69720514B15BC4478654E14B3D3592E404F9057F8166C3D36042A0DC4A04F"
+    },
+    {
+      "path": "scripts/check-project.js",
+      "sha256": "A06D247040C34B14D048971C407645D556AB08A6D6A5ADA8E682E402B917B975"
+    },
+    {
+      "path": "scripts/online.ps1",
+      "sha256": "732F196C16DB333A494E3C6E5D8B26AAA2F38227232770579EEC4495DCC402A3"
+    },
+    {
+      "path": "scripts/test.js",
+      "sha256": "6FF94F00E1B20718FC3E6A9CDB45B3CE2B726A519EC703B806644FCE93F7BF97"
+    },
+    {
+      "path": "server/auth.js",
+      "sha256": "472ACEB3F3D61DD60871E3F751B676A41587599754EF8A1B3CEF6AAFDC7C3C58"
+    },
+    {
+      "path": "server/conversations.js",
+      "sha256": "651BDF86760913C9BE908A3D9768A70C07169F3A04CD98B975EDED6EB528C9E8"
+    },
+    {
+      "path": "server/db.js",
+      "sha256": "3AEB8DC49397C3050D15BFA0AD4DEAC1BF0C1888412FE7496FE1A2DC3572E115"
+    },
+    {
+      "path": "server/index.js",
+      "sha256": "2BF92D408FC2F440E783B8FED2381F3D8EC3DE8B1D39393D648DC997DD37493D"
+    },
+    {
+      "path": "server/smoke.js",
+      "sha256": "A9EAFA45F67038DBE527F57307B6EFA1FB49088C7389B131D8E9430C3354982D"
+    },
+    {
+      "path": "server/voice-presence.js",
+      "sha256": "2B8F93518679EB04E060B9DFCE90805074AB5CD419600BA04AC3114E255D5E59"
+    },
+    {
+      "path": "test-evidence/auth-ui.log",
+      "sha256": "4013AD4441BBEADCDC4F1AD53ABE2913C2F6CD89AED23253E024491BC4CAE3F6"
+    },
+    {
+      "path": "test-evidence/community-settings.png",
+      "sha256": "F915A8504C698AA51EA0EBC3FA7573CDF25AA66A174E56183C609049DCED631C"
+    },
+    {
+      "path": "test-evidence/desktop.log",
+      "sha256": "6A7495C1CE705D62889E40612E5CC5EE453214488725101CD4BC2FF98AB43FEB"
+    },
+    {
+      "path": "test-evidence/format.log",
+      "sha256": "9308D607E577100E400F19E676483E6286AB578EB51004E0C008DD8CB5A58019"
+    },
+    {
+      "path": "test-evidence/mobile-chat-small-viewport.png",
+      "sha256": "8E275341D71BE4DB87F3FDDE756A95FEEF781FB14ECCFF3408023F298EE7652C"
+    },
+    {
+      "path": "test-evidence/mobile-community.png",
+      "sha256": "2790A0F612D0A1C0C87293C0CBA2404B2F55CC4F9AF5AF4B668AB439D95ECC53"
+    },
+    {
+      "path": "test-evidence/mobile-home.png",
+      "sha256": "DEFC493DE9DC45D6B02DCED82869FA4E1A08F4A96215A67969E5507973326285"
+    },
+    {
+      "path": "test-evidence/mobile.log",
+      "sha256": "1CEECD51FFFAADE545D0929C8F71AAB7D5EAAA69C5E8714333C4CF4824B26DF0"
+    },
+    {
+      "path": "test-evidence/npm-build.log",
+      "sha256": "DBF9862830D406E64D4CF36E7E961530BB9775E6155F12F5F06FB86A41C758F3"
+    },
+    {
+      "path": "test-evidence/npm-test.log",
+      "sha256": "F651815A9344E99DA1E40B4EEA587604B9D886EE0D6756AA05DF89F732AE729B"
+    },
+    {
+      "path": "test-evidence/private.png",
+      "sha256": "07A91F7A0571FA3438234246718501A3274FBD524DBF248FFE0A04EDEB4BB4E9"
+    },
+    {
+      "path": "test-evidence/refactor-chat.png",
+      "sha256": "76585085F733305ADFA6F3BED1437CE9526C3B06E354AD38CC82604495FF03F5"
+    },
+    {
+      "path": "test-evidence/scan.log",
+      "sha256": "D0C61AFDC1E3B1056583D88F7ED9F95AD9626D53440C94E6A5495DD3FF551C6E"
+    },
+    {
+      "path": "test-evidence/structure.log",
+      "sha256": "359BD892D154E534C93246EDF0AFEB7E9A592BB2E9567281C348913A789128AF"
+    },
+    {
+      "path": "test-evidence/voice.png",
+      "sha256": "032FAA08A551248F3E40DE7EEB74BE8AEE623AF334D198EC51826576EA36F492"
+    },
+    {
+      "path": "tests/api.test.js",
+      "sha256": "9B3A8019B022336E8824FD7BBAF54D1A11F30B26B5D51BDAB4AC05CD177F2928"
+    },
+    {
+      "path": "tests/auth-ui.mjs",
+      "sha256": "36B8C642A5C8F9D7564DEC900B0BAD145D97842F14C097B135B2C36C8A9A132D"
+    },
+    {
+      "path": "tests/browser.mjs",
+      "sha256": "355575C112CD979B53BE1726CABE0AFA4674AA912540AFBBF4C5B83B079B2B8A"
+    },
+    {
+      "path": "tests/call-manager.test.js",
+      "sha256": "45F10F0237FDFD06EBBD78A26B0CD2532244A19B92B167ECABF8CCA1E28D13FD"
+    },
+    {
+      "path": "tests/document-structure.mjs",
+      "sha256": "D042C91972FB0D48A3E0FD66C30669F02BF4D98F77124FCFFDDF9DFF961BAA23"
+    },
+    {
+      "path": "tests/mobile.mjs",
+      "sha256": "18F2AF07167BC87553031A7A1199259303F3C0F0E7C51AAC6D92967AB7D67A1D"
+    },
+    {
+      "path": "tests/private-calls.test.js",
+      "sha256": "BC323E04FCA6108A5A8772C11E88CB38C6222709C4313A7801F80B71F648FFE1"
+    },
+    {
+      "path": "tests/server-helper.js",
+      "sha256": "88BD610631B4151E1F356FF3BEE3562C28B2121CE0966C49BA48A26F03A1E128"
+    },
+    {
+      "path": "tests/sync-data.test.js",
+      "sha256": "6ACEEBEEBDF6C9741018C35A03C15923875725BB7E577954395B7C74D0A6BC09"
+    },
+    {
+      "path": "tests/sync-engine.test.js",
+      "sha256": "E307C09DF88AC988FE2956414B9F169DCA02E1B0EA8B9C9C347A36C6DFE506C9"
+    },
+    {
+      "path": "tests/templates.test.js",
+      "sha256": "E8F0FBBBB4E73A76B64E77818B0C84297AD7A8188D14096BBED51D5E9F088EC8"
+    },
+    {
+      "path": "web/index.html",
+      "sha256": "7D2B787AB8F23BC446AD57F40D7E4133E8F38D090639292BE2B7030DEE6BDD3A"
+    },
+    {
+      "path": "web/manifest.webmanifest",
+      "sha256": "5F38CB68A7714369C1160532F38D6DF67D6854F53A6802CCCEC7B1620C3ABE08"
+    },
+    {
+      "path": "web/service-worker.js",
+      "sha256": "260836103A44EEF7BC59BDAEB2E704C2E4B3E346DF0F784FC5A71023A3770535"
+    },
+    {
+      "path": "web/assets/icons.js",
+      "sha256": "BCCA4725C171C562399C9E9736612C76E983299CB261D6104A4DC41195137180"
+    },
+    {
+      "path": "web/assets/images/nightcall-logo.png",
+      "sha256": "9B68A29E115A7EBD38BD4206BD1277EC334EC8A9EB6709474DA81BB78AEC125C"
+    },
+    {
+      "path": "web/assets/images/nightcall-mark.png",
+      "sha256": "E17D741FBF63036E0B53C4AF583232E20077BFC5D1C4F65DD04BE1B238B7312F"
+    },
+    {
+      "path": "web/assets/images/nightcall-reference.png",
+      "sha256": "4FC690D6331FACC193F45CD37F0CB0F689A33D80CDE9D8419DC06B37E7FE0A62"
+    },
+    {
+      "path": "web/css/calls.css",
+      "sha256": "3D35DA9FEFCB65C40BAB87AB778C5C06734C723576FF819320E5868B2544E48F"
+    },
+    {
+      "path": "web/css/responsive.css",
+      "sha256": "F1739570FDC24A512A3E7ADCCAFCFDA12C20380970E36F7F1540D5395D113034"
+    },
+    {
+      "path": "web/css/style.css",
+      "sha256": "E34D7CFC20F3DCA390342D1DD1F5795B36AD2BDDA0012C3F83802B2F166F11BC"
+    },
+    {
+      "path": "web/js/app.js",
+      "sha256": "014EEE8516C87EA1B40E5BD43987F9F87FBCA0558F57BEE85B5BDBC110053C4A"
+    },
+    {
+      "path": "web/js/auth.js",
+      "sha256": "BE40C0755BDB522F3D5050D96FAEC7D2BFC4EF0B9C7E0958F6FB96F52612CC0A"
+    },
+    {
+      "path": "web/js/call-manager.js",
+      "sha256": "93EEF0F1F5960711BF9B81BC7D4763F3817AA8840EBA469A78FBFFF873D9FD40"
+    },
+    {
+      "path": "web/js/call-view.js",
+      "sha256": "4FE156DA903D2912234B20F3F40A8DFE88F85063AD1084805E54A4A303CED208"
+    },
+    {
+      "path": "web/js/calls.js",
+      "sha256": "3ED42D898AB1D4B7B26329108AAEF80B691EB023EF1605A020109EC5CB25D724"
+    },
+    {
+      "path": "web/js/communities.js",
+      "sha256": "9F37442063BCED511A1838A9C2AA1E9FC637A8A2E0BBDC92BE752BCDFD83352B"
+    },
+    {
+      "path": "web/js/friends.js",
+      "sha256": "DA9D24987EC20D82053D9C81A0839D0CFD3D36AF1F0B01FB4A9FF21C63E2325E"
+    },
+    {
+      "path": "web/js/home.js",
+      "sha256": "663B56B27D439123411AA1B1DFFFB7AE18742ED6E5820DAA09E7F05D13FCB117"
+    },
+    {
+      "path": "web/js/messages.js",
+      "sha256": "115E0654D42ECB9712385CAF67400CEB3DAB72797C45C0688F6E540537DB1ACD"
+    },
+    {
+      "path": "web/js/navigation.js",
+      "sha256": "0BDE98D71B0CFA5CCA0CC325C9BA3DBA79CE74D4ACBE299C26F7D489FCBBB009"
+    },
+    {
+      "path": "web/js/notifications.js",
+      "sha256": "FF080F16BEAD011597ADB53C13FDB9C9BCA193CFDBB0B6D6915101F02DCCB0DA"
+    },
+    {
+      "path": "web/js/private-calls.js",
+      "sha256": "A5918F09490846792AE0B68C5ED889751766FC6A49B1B4C5D527D340D67806A3"
+    },
+    {
+      "path": "web/js/profile.js",
+      "sha256": "E3C86B289BAE567D84A197BE772EA707AFC40D6208FF4E4638E8A2DC02FB5EA2"
+    },
+    {
+      "path": "web/js/settings.js",
+      "sha256": "3C3879DE9C197E572754A34EFC8B739D9C9D8C9E6545E7EF653F5C025578B8D2"
+    },
+    {
+      "path": "web/js/synchronization.js",
+      "sha256": "30E040279B6A3543A923A18CFBCEDF54BE026BF3F850672C077862CB20AFB8D0"
+    },
+    {
+      "path": "web/js/ui.js",
+      "sha256": "2020E602D962C05D0203DCF65DDC4387C9B33088B24D23A6139202679B7F568D"
+    },
+    {
+      "path": "web/public/nightcall-logo.png",
+      "sha256": "9B68A29E115A7EBD38BD4206BD1277EC334EC8A9EB6709474DA81BB78AEC125C"
+    }
+  ]
+}
