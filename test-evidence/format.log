@@ -1,5 +1,5 @@
 
-> nightcall@0.12.0-rc.3 format:check
+> nightcall@0.12.0-rc.4 format:check
 > prettier --check web/js web/css web/index.html
 
 Checking formatting...

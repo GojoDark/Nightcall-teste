@@ -1,3 +1,9 @@
+# v0.12.0-rc.4 — login no root correto
+
+- Corrige login uma viewport abaixo da tela: boot, login e shell agora compartilham #app.
+- Teste novo mede posição e altura nos fluxos de autenticação e refresh, em desktop e mobile emulado.
+- CSS, CSP, backend e módulos funcionais idênticos à rc.3. Veja ROOT-LAYOUT-FIX.md.
+
 # v0.12.0-rc.3 — estrutura HTML sobre rc.2
 
 - Shell, navegação, login, Home, Amigos, DMs/canais, perfis, configurações e painéis permanentes declarados no HTML.

@@ -1,27 +1,27 @@
 
-> nightcall@0.12.0-rc.3 test
+> nightcall@0.12.0-rc.4 test
 > node scripts/test.js
 
 Nightcall smoke test: OK
-✔ HTTP regression: auth, friends, profiles, DM, communities, presence and signaling (1073.8775ms)
-✔ slow hangup acknowledgement cannot restart media from a stale sync snapshot (3.8881ms)
-✔ repeated entry keeps identity, microphone, peer, mute and volume (35.8794ms)
-✔ camera and screen send independently and stop independently (2.2587ms)
-✔ shared audio remains separate from mic and obeys volume, deafen and cleanup (1.1138ms)
-✔ early ICE is queued, stale contexts ignored, polite glare accepts offer (2.2373ms)
-✔ impolite glare ignores colliding offer and candidates (2.7119ms)
-✔ deafen applies to new remote audio, restoring mute and individual volume (0.4085ms)
-✔ mic replacement preserves mute and stops old capture (0.5789ms)
-✔ leave while permission pending cannot resurrect a session (0.3185ms)
-✔ failed media replacement restores previous track and releases new capture (1.2551ms)
-✔ late private signaling cannot replace the accepted peer session (1.2496ms)
-✔ presence requires explicit join, deduplicates and rejects stale exits (5.1863ms)
-✔ community membership reconciles departed peers and rejects unknown sessions (0.4625ms)
-✔ private call lifecycle, all clients, persistent events and unread DMs (2141.595ms)
-✔ DM order, invitation delivery, private signaling authorization and recent channel messages (5212.8174ms)
-✔ one scheduler skips an in-flight job and removes listeners on stop (9.8404ms)
-✔ real HTML templates load, render every field and preserve escaping (14.7741ms)
-✔ frontend relative imports and local HTML assets resolve after the move (38.0731ms)
+✔ HTTP regression: auth, friends, profiles, DM, communities, presence and signaling (1195.5262ms)
+✔ slow hangup acknowledgement cannot restart media from a stale sync snapshot (2.6841ms)
+✔ repeated entry keeps identity, microphone, peer, mute and volume (57.7452ms)
+✔ camera and screen send independently and stop independently (1.8561ms)
+✔ shared audio remains separate from mic and obeys volume, deafen and cleanup (0.8489ms)
+✔ early ICE is queued, stale contexts ignored, polite glare accepts offer (2.3659ms)
+✔ impolite glare ignores colliding offer and candidates (1.8123ms)
+✔ deafen applies to new remote audio, restoring mute and individual volume (0.4912ms)
+✔ mic replacement preserves mute and stops old capture (0.6316ms)
+✔ leave while permission pending cannot resurrect a session (0.358ms)
+✔ failed media replacement restores previous track and releases new capture (0.6016ms)
+✔ late private signaling cannot replace the accepted peer session (0.4411ms)
+✔ presence requires explicit join, deduplicates and rejects stale exits (0.6901ms)
+✔ community membership reconciles departed peers and rejects unknown sessions (0.5469ms)
+✔ private call lifecycle, all clients, persistent events and unread DMs (2278.8456ms)
+✔ DM order, invitation delivery, private signaling authorization and recent channel messages (5385.1859ms)
+✔ one scheduler skips an in-flight job and removes listeners on stop (7.2388ms)
+✔ real HTML templates load, render every field and preserve escaping (19.2455ms)
+✔ frontend relative imports and local HTML assets resolve after the move (39.9791ms)
 ℹ tests 19
 ℹ suites 0
 ℹ pass 19
@@ -29,4 +29,4 @@ Nightcall smoke test: OK
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 5445.9476
+ℹ duration_ms 5711.6969

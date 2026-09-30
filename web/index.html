@@ -23,292 +23,294 @@
           <p id="boot-status">Carregando…</p>
         </div>
       </div>
-    </div>
-    <main class="auth-page" hidden
-      ><div class="auth-glow glow-a"></div><div class="auth-glow glow-b"></div
-      ><section class="auth-card"
-        ><div class="auth-brand"
-          ><img
-            class="brand-logo"
-            src="/assets/images/nightcall-mark.png"
-            alt="Nightcall"
-          /><div
-            ><strong>nightcall</strong
-            ><span>Seu canto. Sua companhia.</span></div
-          ></div
-        ><div class="auth-copy"
-          ><p class="eyebrow" id="auth-eyebrow">BEM-VINDO DE VOLTA</p
-          ><h1 id="auth-title">Entre no Nightcall.</h1
-          ><p id="auth-sub"
-            >Converse, ligue e encontre quem está online.</p
-          ></div
-        ><form id="auth-form" class="form"></form
-        ><button id="switch" class="switch"></button
-        ><div class="auth-note"
-          ><span>●</span> Nightcall • ambiente de teste</div
-        ></section
-      ></main
-    >
-    <div class="app-shell" hidden
-      ><header class="mobile-topbar"
-        ><button id="mobile-back" aria-label="Voltar">←</button
-        ><button id="mobile-menu" aria-label="Abrir navegação">☰</button
-        ><b id="mobile-title">Nightcall</b
-        ><button id="mobile-members" aria-label="Membros">Membros</button
-        ><button id="mobile-notifications" aria-label="Notificações"
-          >●<em id="notification-count" hidden>0</em></button
-        ></header
-      ><aside class="rail"
-        ><button id="home-btn" class="rail-home active"
-          ><img
-            class="brand-logo small"
-            src="/assets/images/nightcall-mark.png"
-            alt="Nightcall" /></button
-        ><div class="rail-divider"></div
-        ><div class="space-stack" id="space-stack"
-          ><button
-            class="space add"
-            id="space-add"
-            title="Criar ou entrar em comunidade"
-            >+</button
-          ></div
-        ><div class="rail-bottom"
-          ><button class="desktop-notifications">Notificações</button
-          ><button id="settings-rail" class="mini-settings">⚙</button></div
-        ></aside
-      ><aside class="context-sidebar"
-        ><div class="context-header"
-          ><div><b>nightcall</b><span>Seu canto. Sua companhia.</span></div
-          ><span class="moon">☾</span></div
-        ><nav class="context-nav"
-          ><button data-sec="home" class="nav-item active"
-            ><span>⌂</span>Início</button
-          ><button data-sec="friends" class="nav-item"
-            ><span>♧</span>Amigos <em id="pending-badge" hidden>0</em></button
-          ><button data-sec="messages" class="nav-item"
-            ><span>◌</span>Mensagens</button
-          ></nav
-        ><div class="side-label">MENSAGENS DIRETAS</div
-        ><div class="dm-list" id="dm-list"
-          ><div class="empty-side">Suas conversas aparecem aqui.</div></div
-        ><div class="profile-dock"
-          ><button id="profile-dock" class="profile-button"
-            ><!--field:avatar--><!--end-field--><span
-              ><b><!--field:displayName--><!--end-field--></b
-              ><small>@<!--field:username--><!--end-field--></small></span
-            ><i class="presence offline"></i></button
-          ><div class="dock-actions"
-            ><button id="dock-mic" title="Microfone"
-              ><!--field:mic--><!--end-field--></button
-            ><button id="dock-audio" title="Áudio"
-              ><!--field:head--><!--end-field--></button
-            ><button id="settings-dock" title="Configurações"
-              ><!--field:gear--><!--end-field--></button
+      <main class="auth-page" hidden
+        ><div class="auth-glow glow-a"></div><div class="auth-glow glow-b"></div
+        ><section class="auth-card"
+          ><div class="auth-brand"
+            ><img
+              class="brand-logo"
+              src="/assets/images/nightcall-mark.png"
+              alt="Nightcall"
+            /><div
+              ><strong>nightcall</strong
+              ><span>Seu canto. Sua companhia.</span></div
             ></div
-          ></div
-        ></aside
-      ><main class="content" id="content"
-        ><div data-page="profile.profile-profile-page" class="profile-page"
-          ><div class="profile-banner"
-            ><div class="banner-glow"></div
-            ><!--field:avatar--><!--end-field--></div
-          ><div class="profile-card"
-            ><div class="profile-title"
-              ><div
-                ><p class="eyebrow">SEU PERFIL</p
-                ><h1><!--field:displayName--><!--end-field--></h1
-                ><span>@<!--field:username--><!--end-field--></span></div
-              ></div
-            ><form id="profile-form" class="profile-form"
-              ><label>Nick / display name<input name="displayName" /></label
-              ><label
-                >Status<select name="status"
-                  ><option value="online">Online</option
-                  ><option value="away">Ausente</option
-                  ><option value="dnd">Não perturbe</option
-                  ><option value="offline">Offline</option></select
-                ></label
-              ><label>Status personalizado<input name="customStatus" /></label
-              ><div class="media-upload-grid"
-                ><label
-                  >Avatar por link<input
-                    name="avatarUrl"
-                    placeholder="https://..."
-                  /><small>Link direto para PNG/JPG/WebP/GIF</small></label
-                ><label
-                  >Avatar do PC<input
-                    id="avatar-file"
-                    type="file"
-                    accept="image/png,image/jpeg,image/webp,image/gif"
-                  /><small>Até 100 MB</small></label
-                ><label
-                  >Banner por link<input
-                    name="bannerUrl"
-                    placeholder="https://..."
-                  /><small>Link direto para imagem ou GIF</small></label
-                ><label
-                  >Banner do PC<input
-                    id="banner-file"
-                    type="file"
-                    accept="image/png,image/jpeg,image/webp,image/gif"
-                  /><small>Até 100 MB</small></label
-                ></div
-              ><label>Bio<textarea name="bio" maxlength="240"></textarea></label
-              ><div class="profile-links-editor"
-                ><b>Links do perfil</b
-                ><!--field:contentItems--><!--end-field--></div
-              ><div class="profile-save"
-                ><button class="primary">Salvar alterações</button
-                ><button type="button" id="logout">Sair</button></div
-              ></form
+          ><div class="auth-copy"
+            ><p class="eyebrow" id="auth-eyebrow">BEM-VINDO DE VOLTA</p
+            ><h1 id="auth-title">Entre no Nightcall.</h1
+            ><p id="auth-sub"
+              >Converse, ligue e encontre quem está online.</p
             ></div
-          ></div
-        ><div
-          data-page="profile.open-user-profile-profile-page"
-          class="profile-page public-profile"
-          ><div class="profile-banner"><!--field:avatar--><!--end-field--></div
-          ><div class="profile-card"
-            ><div class="profile-title"
-              ><div
-                ><p class="eyebrow">PERFIL NIGHTCALL</p
-                ><h1><!--field:displayName--><!--end-field--></h1
-                ><span>@<!--field:username--><!--end-field--></span></div
-              ><i class="presence"></i></div
-            ><p class="profile-bio"><!--field:bio--><!--end-field--></p
-            ><!--field:statusSection--><!--end-field--><!--field:linksSection--><!--end-field--><div
-              class="profile-actions"
-              ><!--field:profileActions--><!--end-field--></div
-            ></div
-          ></div
-        ><div data-page="messages.chat" class="dm-page"
-          ><!--field:header--><!--end-field--><div
-            class="chat-load-status"
-            role="status"
-          ></div
-          ><div class="message-scroll" id="message-scroll"></div
-          ><button class="new-messages" hidden>Novas mensagens ↓</button
-          ><form class="composer" id="composer">
-            <textarea
-              id="message-input"
-              rows="1"
-              maxlength="4000"
-              placeholder="Mensagem para "
-            ></textarea
-            ><button class="primary" aria-label="Enviar">➤</button></form
-          ></div
-        ><div data-page="home.home-home-page" class="home-page"
-          ><header class="home-top"
-            ><div
-              ><p class="eyebrow">INÍCIO</p
-              ><h1
-                >Boa noite,
-                <!--field:displayName--><!--end-field-->.</h1
-              ><p>Quem está aqui com você?</p></div
-            ><!--field:avatar--><!--end-field--></header
-          ><section class="people-hero"
-            ><div class="night-orb"
-              ><img src="/assets/images/nightcall-mark.png" /></div
-            ><div
-              ><span class="eyebrow">SEU CANTO</span
-              ><h2>Fique perto de quem importa.</h2
-              ><p
-                >Amigos, mensagens e chamadas vivem aqui — independentemente dos
-                espaços.</p
-              ></div
-            ></section
-          ><section class="section"
-            ><div class="section-title"
-              ><div
-                ><h3>Quem está online</h3
-                ><span
-                  ><!--field:onlineCount--><!--end-field-->
-                  <!--field:peopleLabel--><!--end-field-->
-                  online</span
-                ></div
-              ><button id="go-msg">Ver mensagens →</button></div
-            ><!--field:onlinePeople--><!--end-field--></section
-          ><section class="section recent"
-            ><div class="section-title"
-              ><div
-                ><h3>Conversas recentes</h3
-                ><span>Suas DMs ficam fora dos espaços.</span></div
-              ></div
-            ><!--field:recentConversations--><!--end-field--></section
-          ></div
-        >
-        <div data-page="friends.friends-friends-page" class="friends-page"
-          ><div class="page-head"
-            ><div
-              ><p class="eyebrow">SOCIAL</p><h1>Amigos</h1
-              ><p>Suas conexões existem antes de qualquer servidor.</p></div
-            ></div
-          ><section class="add-friend"
-            ><div
-              ><b>Adicionar amigo</b
-              ><span>Encontre alguém pelo @ID público.</span></div
-            ><form id="add-form"
-              ><input
-                id="friend-username"
-                placeholder="@username"
-                required
-              /><button class="primary">Adicionar</button></form
-            ></section
-          ><div class="tabs"
-            ><button class="active" data-tab="online">Online</button
-            ><button data-tab="all">Todos</button
-            ><button data-tab="pending"
-              >Pendentes
-              <!--field:pendingBadge--><!--end-field--></button
-            ></div
-          ><div id="friend-list"></div
-        ></div>
-        <div data-page="messages.messages-messages-page" class="messages-page"
-          ><div class="page-head"
-            ><div
-              ><p class="eyebrow">MENSAGENS</p><h1>Conversas privadas</h1
-              ><p>DMs persistidas no Nightcall, fora dos espaços.</p></div
-            ></div
-          ><!--field:conversations--><!--end-field--></div
-        >
-        <div data-page="settings.settings-settings-page" class="settings-page"
-          ><div class="page-head"
-            ><p class="eyebrow">CONFIGURAÇÕES</p><h1>Voz e vídeo</h1></div
-          ><div class="settings-grid"
-            ><section class="profile-card"
-              ><form id="audio-settings"
-                ><label
-                  >Microfone<select name="input"
-                    ><option value="">Padrão do sistema</option
-                    ><!--field:devicesItemsItems--><!--end-field--></select
-                  ></label
-                ><label
-                  >Saída de áudio<select name="output"
-                    ><option value="">Padrão do sistema</option
-                    ><!--field:devicesItemsItems2--><!--end-field--></select
-                  ></label
-                ><small id="output-support"></small
-                ><div class="settings-checks"
-                  ><!--field:contentItems--><!--end-field--></div
-                ><button class="primary">Salvar dispositivos</button></form
-              ><button id="test-mic" class="secondary"
-                >Testar captura do microfone</button
-              ></section
-            ><section class="profile-card"
-              ><h3>Conta</h3
-              ><p
-                >Avatar, banner, bio e links ficam em Editar perfil, no seu
-                perfil.</p
-              ><button id="go-profile-settings" class="secondary"
-                >Abrir meu perfil</button
-              ><button id="settings-logout" class="secondary"
-                >Sair da conta</button
-              ></section
-            ></div
-          ></div
+          ><form id="auth-form" class="form"></form
+          ><button id="switch" class="switch"></button
+          ><div class="auth-note"
+            ><span>●</span> Nightcall • ambiente de teste</div
+          ></section
         ></main
-      ><button id="nav-backdrop" aria-label="Fechar navegação"></button
-      ><div id="sync-status" role="status"></div
-    ></div>
+      >
+      <div class="app-shell" hidden
+        ><header class="mobile-topbar"
+          ><button id="mobile-back" aria-label="Voltar">←</button
+          ><button id="mobile-menu" aria-label="Abrir navegação">☰</button
+          ><b id="mobile-title">Nightcall</b
+          ><button id="mobile-members" aria-label="Membros">Membros</button
+          ><button id="mobile-notifications" aria-label="Notificações"
+            >●<em id="notification-count" hidden>0</em></button
+          ></header
+        ><aside class="rail"
+          ><button id="home-btn" class="rail-home active"
+            ><img
+              class="brand-logo small"
+              src="/assets/images/nightcall-mark.png"
+              alt="Nightcall" /></button
+          ><div class="rail-divider"></div
+          ><div class="space-stack" id="space-stack"
+            ><button
+              class="space add"
+              id="space-add"
+              title="Criar ou entrar em comunidade"
+              >+</button
+            ></div
+          ><div class="rail-bottom"
+            ><button class="desktop-notifications">Notificações</button
+            ><button id="settings-rail" class="mini-settings">⚙</button></div
+          ></aside
+        ><aside class="context-sidebar"
+          ><div class="context-header"
+            ><div><b>nightcall</b><span>Seu canto. Sua companhia.</span></div
+            ><span class="moon">☾</span></div
+          ><nav class="context-nav"
+            ><button data-sec="home" class="nav-item active"
+              ><span>⌂</span>Início</button
+            ><button data-sec="friends" class="nav-item"
+              ><span>♧</span>Amigos <em id="pending-badge" hidden>0</em></button
+            ><button data-sec="messages" class="nav-item"
+              ><span>◌</span>Mensagens</button
+            ></nav
+          ><div class="side-label">MENSAGENS DIRETAS</div
+          ><div class="dm-list" id="dm-list"
+            ><div class="empty-side">Suas conversas aparecem aqui.</div></div
+          ><div class="profile-dock"
+            ><button id="profile-dock" class="profile-button"
+              ><!--field:avatar--><!--end-field--><span
+                ><b><!--field:displayName--><!--end-field--></b
+                ><small>@<!--field:username--><!--end-field--></small></span
+              ><i class="presence offline"></i></button
+            ><div class="dock-actions"
+              ><button id="dock-mic" title="Microfone"
+                ><!--field:mic--><!--end-field--></button
+              ><button id="dock-audio" title="Áudio"
+                ><!--field:head--><!--end-field--></button
+              ><button id="settings-dock" title="Configurações"
+                ><!--field:gear--><!--end-field--></button
+              ></div
+            ></div
+          ></aside
+        ><main class="content" id="content"
+          ><div data-page="profile.profile-profile-page" class="profile-page"
+            ><div class="profile-banner"
+              ><div class="banner-glow"></div
+              ><!--field:avatar--><!--end-field--></div
+            ><div class="profile-card"
+              ><div class="profile-title"
+                ><div
+                  ><p class="eyebrow">SEU PERFIL</p
+                  ><h1><!--field:displayName--><!--end-field--></h1
+                  ><span>@<!--field:username--><!--end-field--></span></div
+                ></div
+              ><form id="profile-form" class="profile-form"
+                ><label>Nick / display name<input name="displayName" /></label
+                ><label
+                  >Status<select name="status"
+                    ><option value="online">Online</option
+                    ><option value="away">Ausente</option
+                    ><option value="dnd">Não perturbe</option
+                    ><option value="offline">Offline</option></select
+                  ></label
+                ><label>Status personalizado<input name="customStatus" /></label
+                ><div class="media-upload-grid"
+                  ><label
+                    >Avatar por link<input
+                      name="avatarUrl"
+                      placeholder="https://..."
+                    /><small>Link direto para PNG/JPG/WebP/GIF</small></label
+                  ><label
+                    >Avatar do PC<input
+                      id="avatar-file"
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/gif"
+                    /><small>Até 100 MB</small></label
+                  ><label
+                    >Banner por link<input
+                      name="bannerUrl"
+                      placeholder="https://..."
+                    /><small>Link direto para imagem ou GIF</small></label
+                  ><label
+                    >Banner do PC<input
+                      id="banner-file"
+                      type="file"
+                      accept="image/png,image/jpeg,image/webp,image/gif"
+                    /><small>Até 100 MB</small></label
+                  ></div
+                ><label
+                  >Bio<textarea name="bio" maxlength="240"></textarea></label
+                ><div class="profile-links-editor"
+                  ><b>Links do perfil</b
+                  ><!--field:contentItems--><!--end-field--></div
+                ><div class="profile-save"
+                  ><button class="primary">Salvar alterações</button
+                  ><button type="button" id="logout">Sair</button></div
+                ></form
+              ></div
+            ></div
+          ><div
+            data-page="profile.open-user-profile-profile-page"
+            class="profile-page public-profile"
+            ><div class="profile-banner"
+              ><!--field:avatar--><!--end-field--></div
+            ><div class="profile-card"
+              ><div class="profile-title"
+                ><div
+                  ><p class="eyebrow">PERFIL NIGHTCALL</p
+                  ><h1><!--field:displayName--><!--end-field--></h1
+                  ><span>@<!--field:username--><!--end-field--></span></div
+                ><i class="presence"></i></div
+              ><p class="profile-bio"><!--field:bio--><!--end-field--></p
+              ><!--field:statusSection--><!--end-field--><!--field:linksSection--><!--end-field--><div
+                class="profile-actions"
+                ><!--field:profileActions--><!--end-field--></div
+              ></div
+            ></div
+          ><div data-page="messages.chat" class="dm-page"
+            ><!--field:header--><!--end-field--><div
+              class="chat-load-status"
+              role="status"
+            ></div
+            ><div class="message-scroll" id="message-scroll"></div
+            ><button class="new-messages" hidden>Novas mensagens ↓</button
+            ><form class="composer" id="composer">
+              <textarea
+                id="message-input"
+                rows="1"
+                maxlength="4000"
+                placeholder="Mensagem para "
+              ></textarea
+              ><button class="primary" aria-label="Enviar">➤</button></form
+            ></div
+          ><div data-page="home.home-home-page" class="home-page"
+            ><header class="home-top"
+              ><div
+                ><p class="eyebrow">INÍCIO</p
+                ><h1
+                  >Boa noite,
+                  <!--field:displayName--><!--end-field-->.</h1
+                ><p>Quem está aqui com você?</p></div
+              ><!--field:avatar--><!--end-field--></header
+            ><section class="people-hero"
+              ><div class="night-orb"
+                ><img src="/assets/images/nightcall-mark.png" /></div
+              ><div
+                ><span class="eyebrow">SEU CANTO</span
+                ><h2>Fique perto de quem importa.</h2
+                ><p
+                  >Amigos, mensagens e chamadas vivem aqui — independentemente
+                  dos espaços.</p
+                ></div
+              ></section
+            ><section class="section"
+              ><div class="section-title"
+                ><div
+                  ><h3>Quem está online</h3
+                  ><span
+                    ><!--field:onlineCount--><!--end-field-->
+                    <!--field:peopleLabel--><!--end-field-->
+                    online</span
+                  ></div
+                ><button id="go-msg">Ver mensagens →</button></div
+              ><!--field:onlinePeople--><!--end-field--></section
+            ><section class="section recent"
+              ><div class="section-title"
+                ><div
+                  ><h3>Conversas recentes</h3
+                  ><span>Suas DMs ficam fora dos espaços.</span></div
+                ></div
+              ><!--field:recentConversations--><!--end-field--></section
+            ></div
+          >
+          <div data-page="friends.friends-friends-page" class="friends-page"
+            ><div class="page-head"
+              ><div
+                ><p class="eyebrow">SOCIAL</p><h1>Amigos</h1
+                ><p>Suas conexões existem antes de qualquer servidor.</p></div
+              ></div
+            ><section class="add-friend"
+              ><div
+                ><b>Adicionar amigo</b
+                ><span>Encontre alguém pelo @ID público.</span></div
+              ><form id="add-form"
+                ><input
+                  id="friend-username"
+                  placeholder="@username"
+                  required
+                /><button class="primary">Adicionar</button></form
+              ></section
+            ><div class="tabs"
+              ><button class="active" data-tab="online">Online</button
+              ><button data-tab="all">Todos</button
+              ><button data-tab="pending"
+                >Pendentes
+                <!--field:pendingBadge--><!--end-field--></button
+              ></div
+            ><div id="friend-list"></div
+          ></div>
+          <div data-page="messages.messages-messages-page" class="messages-page"
+            ><div class="page-head"
+              ><div
+                ><p class="eyebrow">MENSAGENS</p><h1>Conversas privadas</h1
+                ><p>DMs persistidas no Nightcall, fora dos espaços.</p></div
+              ></div
+            ><!--field:conversations--><!--end-field--></div
+          >
+          <div data-page="settings.settings-settings-page" class="settings-page"
+            ><div class="page-head"
+              ><p class="eyebrow">CONFIGURAÇÕES</p><h1>Voz e vídeo</h1></div
+            ><div class="settings-grid"
+              ><section class="profile-card"
+                ><form id="audio-settings"
+                  ><label
+                    >Microfone<select name="input"
+                      ><option value="">Padrão do sistema</option
+                      ><!--field:devicesItemsItems--><!--end-field--></select
+                    ></label
+                  ><label
+                    >Saída de áudio<select name="output"
+                      ><option value="">Padrão do sistema</option
+                      ><!--field:devicesItemsItems2--><!--end-field--></select
+                    ></label
+                  ><small id="output-support"></small
+                  ><div class="settings-checks"
+                    ><!--field:contentItems--><!--end-field--></div
+                  ><button class="primary">Salvar dispositivos</button></form
+                ><button id="test-mic" class="secondary"
+                  >Testar captura do microfone</button
+                ></section
+              ><section class="profile-card"
+                ><h3>Conta</h3
+                ><p
+                  >Avatar, banner, bio e links ficam em Editar perfil, no seu
+                  perfil.</p
+                ><button id="go-profile-settings" class="secondary"
+                  >Abrir meu perfil</button
+                ><button id="settings-logout" class="secondary"
+                  >Sair da conta</button
+                ></section
+              ></div
+            ></div
+          ></main
+        ><button id="nav-backdrop" aria-label="Fechar navegação"></button
+        ><div id="sync-status" role="status"></div
+      ></div>
+    </div>
     <section id="persistent-call" hidden
       ><header
         ><div

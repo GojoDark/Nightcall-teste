@@ -85,3 +85,10 @@ Registrar aparelho, sistema, navegador, rede, latência até áudio, resultado e
 - [x] Elementos da shell/Home/call preservados após navegação e login/logout repetidos.
 - [x] Suítes de autenticação, desktop e mobile repetidas após a migração.
 
+
+## Root rc.4
+
+- [x] Login visível em y=0, sem scroll/compensação, em desktop e mobile emulado.
+- [x] Login/logout e refresh com/sem sessão preservam um único estado de viewport no #app.
+- [x] Teste novo falha na rc.3 com y=912 e passa na rc.4.
+

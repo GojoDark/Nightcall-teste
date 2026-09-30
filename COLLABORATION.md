@@ -75,3 +75,5 @@ Combinem uma área por mudança. Usem nomes que expliquem o objetivo, sem misc.j
 Comentários devem explicar decisões importantes, principalmente sessão, mídia, permissões e requisições concorrentes. Evitem comentar o óbvio linha por linha. Segurança e funcionamento têm prioridade sobre reduzir artificialmente o número de arquivos.
 
 Para alterações funcionais, rodem npm test e npm run build. Para interface, também npm run test:auth; para chamadas, npm run test:browser; para navegação/layout, npm run test:mobile. Consultem o README sobre o navegador de teste e REGRESSION.md sobre os testes físicos pendentes.
+
+Na rc.4, web/index.html declara boot, auth-page e app-shell dentro do mesmo #app. Ao editar essa estrutura, rode npm run test:auth-layout: os estados precisam ocupar a mesma viewport, sem empilhamento.

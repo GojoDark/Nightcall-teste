@@ -1,4 +1,4 @@
-# NIGHTCALL v0.12.0-rc.3 — candidata para validação física
+# NIGHTCALL v0.12.0-rc.4 — candidata para validação física
 
 Continuação da v0.11.0, derivada do ZIP v0.10.1. Mantém servidor Node, SQLite, contas, amizades, DMs, comunidades, canais e perfis existentes. Esta etapa parte exclusivamente da rc.2: a estrutura fixa agora está em web/index.html, com templates nativos para componentes dinâmicos no mesmo documento. Preserva CSS em web/css, módulos em web/js e imagens em web/assets. Não há carregamento de HTML por fetch. Os testes automatizados passaram; PC/celular físicos, duas redes e avaliação humana ainda estão pendentes. Esta candidata não é uma aprovação desses cenários.
 
@@ -66,3 +66,5 @@ Leia [COLLABORATION.md](COLLABORATION.md), [GITHUB-DESKTOP.md](GITHUB-DESKTOP.md
 `npm run test:auth` cobre cadastro/login/logout e ações sociais pela interface. Os três testes de navegador usam Playwright/Chromium; para instalá-los em ambiente de desenvolvimento, use `npm install --no-save --package-lock=false playwright` e `npx playwright install chromium`, ou configure PLAYWRIGHT_MODULE/CHROME_PATH para uma instalação já existente. Não é necessário instalar Playwright para executar o servidor ou `npm test`.
 
 Teste adicional: `npm run test:structure` verifica estrutura sem JavaScript, ausência de requisições de templates e reutilização dos elementos entre navegações/logins. Usa o mesmo Playwright/Chrome dos demais testes de navegador.
+
+Na rc.4, boot, login e shell são filhos do mesmo #app. Consulte ROOT-LAYOUT-FIX.md. Execute npm run test:auth-layout para verificar login/logout/refresh e posição na viewport.

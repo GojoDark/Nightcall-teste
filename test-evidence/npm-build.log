@@ -1,5 +1,5 @@
 
-> nightcall@0.12.0-rc.3 build
+> nightcall@0.12.0-rc.4 build
 > node scripts/build.js
 
 Nightcall build: static/server source packaged in dist/.
